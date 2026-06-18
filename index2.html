@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Checker</title>
+
+    <link rel="stylesheet" href="style2.css">
+
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+<div class="container">
+
+    <header>
+        <i class="fa-solid fa-shield-halved logo"></i>
+        <h1>Password Checker</h1>
+        <p>Check and generate secure passwords.</p>
+    </header>
+
+    <div class="main">
+
+        <div class="left">
+
+            <label>Password</label>
+
+            <div class="input-box">
+                <input
+                    type="password"
+                    id="password"
+                    placeholder="Enter password"
+                >
+
+                <button id="toggleBtn">
+                    <i class="fa-solid fa-eye"></i>
+                </button>
+            </div>
+
+            <div class="strength-bar">
+                <div
+                    class="strength-fill"
+                    id="fill"
+                ></div>
+            </div>
+
+            <h3 id="message">
+                Password Strength
+            </h3>
+
+            <div class="generator">
+
+                <h4>Generate Password</h4>
+
+                <select id="lengthSelect">
+                    <option value="8">8 Characters</option>
+                    <option value="10">10 Characters</option>
+                    <option value="16">16 Characters</option>
+                </select>
+
+                <select id="typeSelect">
+                    <option value="normal">
+                        Alphabets & Numbers
+                    </option>
+
+                    <option value="symbols">
+                        Alphanumeric + Symbols
+                    </option>
+                </select>
+
+                <button id="generateBtn">
+                    Generate
+                </button>
+
+            </div>
+
+        </div>
+
+        <div class="requirements">
+
+            <h4>Requirements</h4>
+
+            <p id="length">
+                ❌ 8+ characters
+            </p>
+
+            <p id="uppercase">
+                ❌ Uppercase
+            </p>
+
+            <p id="number">
+                ❌ Number
+            </p>
+
+            <p id="symbol">
+                ❌ Symbol
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="script2.js"></script>
+
+</body>
+</html>
