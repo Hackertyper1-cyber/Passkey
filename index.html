@@ -1,110 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Passkey</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Checker</title>
 
-  <!-- Font Awesome for icons -->
-  <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style2.css">
+
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
 
-  <div class="container">
+<div class="container">
 
-    <!-- Header -->
     <header>
-      <i class="fa-solid fa-shield-halved logo"></i>
-      <h1>Passkey</h1>
-      <p>
-        <b>Password Strength Checker</b><br>
-        Check the strength of your password and see if it is
-        Weak, Medium, or Strong.
-      </p>
+        <i class="fa-solid fa-shield-halved logo"></i>
+        <h1>Password Checker</h1>
+        <p>Check and generate secure passwords.</p>
     </header>
 
-    <div class="main-row">
+    <div class="main">
 
-      <div class="left-section">
+        <div class="left">
 
-    <!-- Password Box -->
-    <div class="password-box">
+            <label>Password</label>
 
-      <label for="password">Enter Password</label>
+            <div class="input-box">
+                <input
+                    type="password"
+                    id="password"
+                    placeholder="Enter password"
+                >
 
-      <div class="input-group">
-        <input
-          type="password"
-          id="password"
-          placeholder="Type your password..."
-        >
+                <button id="toggleBtn">
+                    <i class="fa-solid fa-eye"></i>
+                </button>
+            </div>
 
-        <button id="toggleBtn">
-          <i class="fa-solid fa-eye"></i>
-        </button>
-      </div>
+            <div class="strength-bar">
+                <div
+                    class="strength-fill"
+                    id="fill"
+                ></div>
+            </div>
 
-      <!-- Strength Bar -->
-      <div class="strength-bar">
-        <div class="strength-fill" id="fill"></div>
-      </div>
+            <h3 id="message">
+                Password Strength
+            </h3>
 
-      <div class="content-row">
+            <div class="generator">
 
-        <div class="checker-content">
-      <h3 id="message">Password Strength</h3>
+                <h4>Generate Password</h4>
 
-      <div class="generator">
+                <select id="lengthSelect">
+                    <option value="8">8 Characters</option>
+                    <option value="10">10 Characters</option>
+                    <option value="16">16 Characters</option>
+                </select>
 
-  <h4>Generate Password</h4>
+                <select id="typeSelect">
+                    <option value="normal">
+                        Alphabets & Numbers
+                    </option>
 
-  <label for="lengthSelect">Password Length</label>
-  <select id="lengthSelect">
-    <option value="8">8 Characters</option>
-    <option value="10">10 Characters</option>
-    <option value="16">16 Characters</option>
-  </select>
+                    <option value="symbols">
+                        Alphanumeric + Symbols
+                    </option>
+                </select>
 
-  <label for="typeSelect">Password Type</label>
-  <select id="typeSelect">
-    <option value="alphanumeric">
-      Alphabets & Numbers
-    </option>
+                <button id="generateBtn">
+                    Generate
+                </button>
 
-    <option value="symbols">
-      Alphanumeric + Symbols
-    </option>
-  </select>
-
-  <button id="generateBtn">
-    Generate Password
-  </button>
-
-  <div class="generated-password">
-    <input
-      type="text"
-      id="generatedPassword"
-      readonly
-      placeholder="Generated password appears here"
-    >
-  </div>
-
-</div>
+            </div>
 
         </div>
-      </div>
+
+        <div class="requirements">
+
+            <h4>Requirements</h4>
+
+            <p id="length">
+                ❌ 8+ characters
+            </p>
+
+            <p id="uppercase">
+                ❌ Uppercase
+            </p>
+
+            <p id="number">
+                ❌ Number
+            </p>
+
+            <p id="symbol">
+                ❌ Symbol
+            </p>
+
+        </div>
 
     </div>
 
-  </div>
+</div>
 
-  </div>
-
-  </div>
-
-  <script src="script.js"></script>
+<script src="script2.js"></script>
 
 </body>
 </html>

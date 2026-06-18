@@ -1,111 +1,170 @@
-const password = document.getElementById("password");
-const fill = document.getElementById("fill");
-const message = document.getElementById("message");
-const toggleBtn = document.getElementById("toggleBtn");
+const password =
+document.getElementById("password");
 
-const lengthText = document.getElementById("length");
-const uppercaseText = document.getElementById("uppercase");
-const numberText = document.getElementById("number");
-const symbolText = document.getElementById("symbol");
+const fill =
+document.getElementById("fill");
 
-/* Show/Hide Password */
-toggleBtn.addEventListener("click", () => {
-  if (password.type === "password") {
-    password.type = "text";
-    toggleBtn.innerHTML =
-      '<i class="fa-solid fa-eye-slash"></i>';
-  } else {
-    password.type = "password";
-    toggleBtn.innerHTML =
-      '<i class="fa-solid fa-eye"></i>';
-  }
+const message =
+document.getElementById("message");
+
+const toggleBtn =
+document.getElementById("toggleBtn");
+
+const lengthText =
+document.getElementById("length");
+
+const uppercaseText =
+document.getElementById("uppercase");
+
+const numberText =
+document.getElementById("number");
+
+const symbolText =
+document.getElementById("symbol");
+
+const generateBtn =
+document.getElementById("generateBtn");
+
+const lengthSelect =
+document.getElementById("lengthSelect");
+
+const typeSelect =
+document.getElementById("typeSelect");
+
+toggleBtn.addEventListener(
+"click",
+() => {
+
+    if(password.type==="password"){
+        password.type="text";
+        toggleBtn.innerHTML =
+        '<i class="fa-solid fa-eye-slash"></i>';
+    }
+    else{
+        password.type="password";
+        toggleBtn.innerHTML =
+        '<i class="fa-solid fa-eye"></i>';
+    }
+
 });
 
-/* Strength Checker */
-password.addEventListener("input", () => {
+function checkPassword(){
 
-  const value = password.value;
+    const value =
+    password.value;
 
-  const hasLength = value.length >= 8;
-  const hasUppercase = /[A-Z]/.test(value);
-  const hasNumber = /[0-9]/.test(value);
-  const hasSymbol = /[^A-Za-z0-9]/.test(value);
+    const hasLength =
+    value.length >= 8;
 
-  let score = 0;
+    const hasUpper =
+    /[A-Z]/.test(value);
 
-  if (hasLength) score++;
-  if (hasUppercase) score++;
-  if (hasNumber) score++;
-  if (hasSymbol) score++;
+    const hasNumber =
+    /[0-9]/.test(value);
 
-  lengthText.textContent =
-    `${hasLength ? "✅" : "❌"} At least 8 characters`;
+    const hasSymbol =
+    /[^A-Za-z0-9]/.test(value);
 
-  uppercaseText.textContent =
-    `${hasUppercase ? "✅" : "❌"} One uppercase letter`;
+    let score = 0;
 
-  numberText.textContent =
-    `${hasNumber ? "✅" : "❌"} One number`;
+    if(hasLength) score++;
+    if(hasUpper) score++;
+    if(hasNumber) score++;
+    if(hasSymbol) score++;
 
-  symbolText.textContent =
-    `${hasSymbol ? "✅" : "❌"} One special character`;
+    lengthText.innerHTML =
+    `${hasLength ? "✅" : "❌"} 8+ characters`;
 
-  if (value.length === 0) {
-    fill.style.width = "0%";
-    message.textContent = "Password Strength";
-  }
-  else if (score <= 1) {
-    fill.style.width = "33%";
-    fill.style.background = "#ff4d4d";
-    message.textContent = "Weak Password";
-  }
-  else if (score <= 3) {
-    fill.style.width = "66%";
-    fill.style.background = "#ffc107";
-    message.textContent = "Medium Password";
-  }
-  else {
-    fill.style.width = "100%";
-    fill.style.background = "#28c76f";
-    message.textContent = "Strong Password";
-  }
-});
-generateBtn.addEventListener("click", () => {
+    uppercaseText.innerHTML =
+    `${hasUpper ? "✅" : "❌"} Uppercase`;
 
-  const length = Number(lengthSelect.value);
-  const type = typeSelect.value;
+    numberText.innerHTML =
+    `${hasNumber ? "✅" : "❌"} Number`;
 
-  const letters =
+    symbolText.innerHTML =
+    `${hasSymbol ? "✅" : "❌"} Symbol`;
+
+    if(value.length===0){
+
+        fill.style.width="0%";
+        message.textContent =
+        "Password Strength";
+
+        return;
+    }
+
+    if(score<=1){
+
+        fill.style.width="33%";
+        fill.style.background="#ff4d4d";
+        message.textContent =
+        "Weak Password";
+    }
+    else if(score<=3){
+
+        fill.style.width="66%";
+        fill.style.background="#ffc107";
+        message.textContent =
+        "Medium Password";
+    }
+    else{
+
+        fill.style.width="100%";
+        fill.style.background="#28c76f";
+        message.textContent =
+        "Strong Password";
+    }
+}
+
+password.addEventListener(
+"input",
+checkPassword
+);
+
+generateBtn.addEventListener(
+"click",
+() => {
+
+    const length =
+    Number(lengthSelect.value);
+
+    const type =
+    typeSelect.value;
+
+    const letters =
     "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
-  const numbers = "0123456789";
+    const numbers =
+    "0123456789";
 
-  const symbols =
-    "!@#$%^&*()_+-=[]{}|;:,.<>?";
+    const symbols =
+    "!@#$%^&*()_+-=[]{}?";
 
-  let characters = letters + numbers;
+    let chars =
+    letters + numbers;
 
-  if (type === "symbols") {
-    characters += symbols;
-  }
+    if(type==="symbols"){
+        chars += symbols;
+    }
 
-  let passwordValue = "";
+    let newPassword = "";
 
-  for (let i = 0; i < length; i++) {
-    const randomIndex =
-      Math.floor(Math.random() * characters.length);
+    for(let i=0;
+        i<length;
+        i++){
 
-    passwordValue +=
-      characters[randomIndex];
-  }
+        const random =
+        Math.floor(
+            Math.random() *
+            chars.length
+        );
 
-  generatedPassword.value =
-    passwordValue;
+        newPassword +=
+        chars[random];
+    }
 
-  password.value =
-    passwordValue;
+    password.value =
+    newPassword;
 
-  password.dispatchEvent(
-    new Event("input")
-  );
+    checkPassword();
 });
