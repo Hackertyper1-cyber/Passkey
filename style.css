@@ -7,7 +7,7 @@
 
 body {
   min-height: 100vh;
-  background: linear-gradient(135deg, #5d9bec, #36d1dc);
+  background: linear-gradient(135deg, #21aee6, #21aee6);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -17,12 +17,14 @@ body {
 .container {
   width: 100%;
   max-width: 550px;
-  background: rgba(255,255,255,0.15);
+  background: rgba(141, 18, 18, 0.15);
   backdrop-filter: blur(15px);
   border-radius: 25px;
   padding: 40px;
-  color: white;
+  color: white
+  (224, 232, 233);
   box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+  max-height: 90vh;
 }
 
 header {
@@ -116,4 +118,43 @@ h3 {
 .requirements p {
   margin-bottom: 10px;
   font-size: 15px;
+}
+.generator {
+  margin-top: 30px;
+}
+
+.generator h4 {
+  margin-bottom: 15px;
+}
+
+.generator label {
+  display: block;
+  margin-top: 15px;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.generator select,
+.generated-password input {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 12px;
+  outline: none;
+  font-size: 15px;
+}
+
+#generateBtn {
+  width: 100%;
+  padding: 15px;
+  margin-top: 20px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+#generateBtn:hover {
+  transform: translateY(-2px);
 }

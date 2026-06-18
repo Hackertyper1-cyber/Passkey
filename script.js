@@ -70,3 +70,42 @@ password.addEventListener("input", () => {
     message.textContent = "Strong Password";
   }
 });
+generateBtn.addEventListener("click", () => {
+
+  const length = Number(lengthSelect.value);
+  const type = typeSelect.value;
+
+  const letters =
+    "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+  const numbers = "0123456789";
+
+  const symbols =
+    "!@#$%^&*()_+-=[]{}|;:,.<>?";
+
+  let characters = letters + numbers;
+
+  if (type === "symbols") {
+    characters += symbols;
+  }
+
+  let passwordValue = "";
+
+  for (let i = 0; i < length; i++) {
+    const randomIndex =
+      Math.floor(Math.random() * characters.length);
+
+    passwordValue +=
+      characters[randomIndex];
+  }
+
+  generatedPassword.value =
+    passwordValue;
+
+  password.value =
+    passwordValue;
+
+  password.dispatchEvent(
+    new Event("input")
+  );
+});

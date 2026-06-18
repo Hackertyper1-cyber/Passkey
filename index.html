@@ -25,6 +25,10 @@
       </p>
     </header>
 
+    <div class="main-row">
+
+      <div class="left-section">
+
     <!-- Password Box -->
     <div class="password-box">
 
@@ -47,30 +51,56 @@
         <div class="strength-fill" id="fill"></div>
       </div>
 
+      <div class="content-row">
+
+        <div class="checker-content">
       <h3 id="message">Password Strength</h3>
 
-      <!-- Requirements -->
-      <div class="requirements">
-        <h4>Password Requirements</h4>
+      <div class="generator">
 
-        <p id="length">
-          ❌ At least 8 characters
-        </p>
+  <h4>Generate Password</h4>
 
-        <p id="uppercase">
-          ❌ One uppercase letter
-        </p>
+  <label for="lengthSelect">Password Length</label>
+  <select id="lengthSelect">
+    <option value="8">8 Characters</option>
+    <option value="10">10 Characters</option>
+    <option value="16">16 Characters</option>
+  </select>
 
-        <p id="number">
-          ❌ One number
-        </p>
+  <label for="typeSelect">Password Type</label>
+  <select id="typeSelect">
+    <option value="alphanumeric">
+      Alphabets & Numbers
+    </option>
 
-        <p id="symbol">
-          ❌ One special character
-        </p>
+    <option value="symbols">
+      Alphanumeric + Symbols
+    </option>
+  </select>
+
+  <button id="generateBtn">
+    Generate Password
+  </button>
+
+  <div class="generated-password">
+    <input
+      type="text"
+      id="generatedPassword"
+      readonly
+      placeholder="Generated password appears here"
+    >
+  </div>
+
+</div>
+
+        </div>
       </div>
 
     </div>
+
+  </div>
+
+  </div>
 
   </div>
 
